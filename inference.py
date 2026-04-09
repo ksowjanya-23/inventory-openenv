@@ -1,25 +1,22 @@
-def run_agent():
-    stock = 50
-    total_steps = 5
+import json
 
-    print("[START] task=inventory", flush=True)
+def predict():
+    # 👉 Replace this with your actual logic if needed
+    result = "success"   # You can change this to your model output
 
-    for step in range(total_steps):
+    return result
 
-        if stock < 20:
-            reward = 1.0
-            stock += 10
-        elif stock > 80:
-            reward = 0.5
-            stock -= 10
-        else:
-            reward = 0.8
+if __name__ == "__main__":
+    try:
+        output = predict()
 
-        print(f"[STEP] step={step+1} reward={reward}", flush=True)
+        # ✅ REQUIRED: Structured JSON output
+        print(json.dumps({
+            "prediction": output
+        }))
 
-    score = stock / 100
-    print(f"[END] task=inventory score={score} steps={total_steps}", flush=True)
-
-
-# 🔥 THIS LINE IS CRITICAL
-run_agent()
+    except Exception as e:
+        # ✅ Always handle errors properly
+        print(json.dumps({
+            "error": str(e)
+        }))
