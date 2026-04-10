@@ -1,8 +1,10 @@
+# final submission version 2
+
 import json
 
 def predict():
     # 👉 Replace this with your actual logic if needed
-    result = "success"   # You can change this to your model output
+    result = "item in stock"  # You can change this to your model output
 
     return result
 
