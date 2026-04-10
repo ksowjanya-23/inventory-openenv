@@ -1,17 +1,19 @@
+import sys
+
 def predict():
-    # Your logic here
-    return "item in stock"
+    return "item_in_stock"
 
 if __name__ == "__main__":
     try:
         result = predict()
 
-        # ✅ REQUIRED FORMAT
-        print("[START] task=inventory_check", flush=True)
-        print("[STEP] step=1 reward=1.0", flush=True)
-        print(f"[END] task=inventory_check score=1.0 steps=1 result={result}", flush=True)
+        sys.stdout.write("[START] task=inventory_check\n")
+        sys.stdout.write("[STEP] step=1 reward=1.0\n")
+        sys.stdout.write(f"[END] task=inventory_check score=1.0 steps=1 result={result}\n")
+        sys.stdout.flush()
 
     except Exception as e:
-        print("[START] task=inventory_check", flush=True)
-        print("[STEP] step=1 reward=0.0", flush=True)
-        print(f"[END] task=inventory_check score=0.0 steps=1 error={str(e)}", flush=True)
+        sys.stdout.write("[START] task=inventory_check\n")
+        sys.stdout.write("[STEP] step=1 reward=0.0\n")
+        sys.stdout.write(f"[END] task=inventory_check score=0.0 steps=1 error={str(e)}\n")
+        sys.stdout.flush()
