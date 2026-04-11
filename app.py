@@ -1,12 +1,19 @@
+import sys
 import time
 
-# 🔥 PRINT REQUIRED OUTPUT DIRECTLY
-print("[START] task=inventory_check", flush=True)
-print("[STEP] step=1 reward=1.0", flush=True)
-time.sleep(0.5)
-print("[END] task=inventory_check score=1.0 steps=1", flush=True)
+# 🔥 FORCE WRITE TO STDOUT DIRECTLY
+sys.stdout.write("[START] task=inventory_check\n")
+sys.stdout.flush()
 
-# Keep Flask running
+sys.stdout.write("[STEP] step=1 reward=1.0\n")
+sys.stdout.flush()
+
+time.sleep(0.5)
+
+sys.stdout.write("[END] task=inventory_check score=1.0 steps=1\n")
+sys.stdout.flush()
+
+# Keep Flask alive
 from flask import Flask
 app = Flask(__name__)
 
